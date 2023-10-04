@@ -1,14 +1,20 @@
-
+from pprint import pprint
+import requests
 
 from data import question_data
 from question_model import Question
 from quiz_brain import QuizBrain
 
 
+url_api = "https://opentdb.com/api.php?amount=10"
+result = requests.get(url_api)
+results = result.json()
+
+
 
 questions_list = []
-for item in question_data:
-    question1 = Question(item['text'], item['answer'])
+for item in results['results']:
+    question1 = Question(item['question'], item['correct_answer'])
     questions_list.append(question1)
 
 
