@@ -2,7 +2,7 @@
 
 from data import question_data
 from question_model import Question
-from quiz_brain import Quiz_Brain
+from quiz_brain import QuizBrain
 
 
 
@@ -12,11 +12,10 @@ for item in question_data:
     questions_list.append(question1)
 
 
-
-quiz = Quiz_Brain(questions_list)
+quiz = QuizBrain(questions_list)
 
 while quiz.still_has_questions():
     quiz.next_question()
 
 print("You've completed the quiz!")
-print("Your final score was " + str(Quiz_Brain.score) + ".")
+print("Your final score was " + str(quiz.score) + ".")
